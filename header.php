@@ -95,7 +95,9 @@
         <div id="m_menu_1" class="m_menu_1" style="visibility: hidden;opacity: 0;">
             <?php $this->widget('Widget_Metas_Category_List')->to($categorys); ?>
             <?php while($categorys->next()): ?>
+            <?php if ($categorys->levels === 0): ?>
             <li class="m_menu_1_li"><a class="m_menu_1_li_a" href="<?php $categorys->permalink(); ?>" title="<?php $categorys->name(); ?>"><?php $categorys->name(); ?></a></li>
+            <?php endif; ?>
             <?php endwhile; ?>
             <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
             <?php while($pages->next()): ?><?php if(!($pages->template == 'page-status.php')): ?>
