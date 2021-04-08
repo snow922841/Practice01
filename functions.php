@@ -339,7 +339,7 @@ function image_class_replace($content)
             $loadingPicAddr = "#";
         }
         $content = preg_replace('#<img(.*?) src="([^"]*/)?(([^"/]*)\.[^"]*)"(.*?)>#',
-            '<img$1 data-original="$2$3"$5 class="lazyload" src="'.$loadingPicAddr.'">', $content);
+            '<a data-fancybox="gallery" href="$1$2$3"><img$1 data-original="$2$3"$5 class="lazyload" src="'.$loadingPicAddr.'">', $content);
         $content = preg_replace('#<a(.*?) href="([^"]*/)?(([^"/]*)\.[^"]*)"(.*?)>#',
             '<a$1 href="$2$3"$5 rel="external nofollow" target="_blank">', $content);
         $content = preg_replace('/\[addimg\](http:|https:)(.*?)(.jpg|.png|.jpeg|.png),(.*?)\[\/addimg\]/i','<a data-fancybox="gallery" href="$1$2$3" data-caption="$4">$4</a>', $content);
